@@ -1,0 +1,475 @@
+/* =========================
+   Dashboard
+========================= */
+
+.dashboard {
+  margin-left: 242px;
+  padding: 94px 28px 32px;
+
+  min-height: 100vh;
+
+  background: #f8f9fc;
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   Dashboard Header
+========================= */
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 24px;
+}
+
+.dashboard-header h1 {
+  margin: 0 0 5px;
+
+  color: #182238;
+
+  font-size: 24px;
+  font-weight: 650;
+  letter-spacing: -0.5px;
+}
+
+.dashboard-header p {
+  margin: 0;
+
+  color: #68758a;
+
+  font-size: 13px;
+}
+
+
+/* =========================
+   Date Filter
+========================= */
+
+.date-filter {
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 0 13px;
+
+  border: 1px solid #e1e6ef;
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #27344d;
+
+  font-family: inherit;
+  font-size: 12px;
+
+  cursor: pointer;
+
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.03);
+}
+
+.date-filter:hover {
+  background: #f9fafc;
+}
+
+.date-arrow {
+  margin-left: 4px;
+
+  color: #718096;
+
+  font-size: 15px;
+}
+
+
+/* =========================
+   Statistics Grid
+========================= */
+
+.stats-grid {
+  display: grid;
+
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+
+  gap: 16px;
+
+  margin-bottom: 18px;
+}
+
+
+/* =========================
+   Stat Card
+========================= */
+
+.stat-card {
+  position: relative;
+
+  min-height: 132px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  padding: 18px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e9f0;
+  border-radius: 10px;
+
+  box-sizing: border-box;
+
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.02);
+}
+
+.stat-content {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-title {
+  margin-bottom: 9px;
+
+  color: #27344d;
+
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.stat-value {
+  margin-bottom: 10px;
+
+  color: #111a2d;
+
+  font-size: 25px;
+  font-weight: 650;
+  line-height: 1;
+  letter-spacing: -0.6px;
+}
+
+
+/* =========================
+   Stat Change
+========================= */
+
+.stat-change {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  color: #68758a;
+
+  font-size: 11px;
+}
+
+.change-arrow {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.stat-card.danger .change-arrow {
+  color: #ef4444;
+}
+
+.stat-card.warning .change-arrow {
+  color: #f59e0b;
+}
+
+.stat-card.success .change-arrow {
+  color: #22a873;
+}
+
+.stat-card.info .change-arrow {
+  color: #22a873;
+}
+
+.change-text {
+  margin-left: 2px;
+}
+
+
+/* =========================
+   Stat Icon
+========================= */
+
+.stat-icon {
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  flex-shrink: 0;
+}
+
+.stat-card.danger .stat-icon {
+  background: #ffe0e2;
+  color: #ef4444;
+}
+
+.stat-card.warning .stat-icon {
+  background: #fff0d7;
+  color: #f59e0b;
+}
+
+.stat-card.success .stat-icon {
+  background: #daf4e8;
+  color: #20a46f;
+}
+
+.stat-card.info .stat-icon {
+  background: #e1e8ff;
+  color: #4a5fd1;
+}
+
+
+/* =========================
+   Dashboard Grid
+========================= */
+
+.dashboard-grid {
+  display: grid;
+
+  grid-template-columns: 1.25fr 1fr 0.75fr;
+
+  gap: 16px;
+}
+
+
+/* =========================
+   Panels
+========================= */
+
+.dashboard-panel {
+  min-height: 250px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e9f0;
+  border-radius: 10px;
+
+  box-sizing: border-box;
+
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.02);
+}
+
+.panel-header {
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 17px;
+
+  border-bottom: 1px solid #edf0f4;
+
+  box-sizing: border-box;
+}
+
+.panel-header h2 {
+  margin: 0;
+
+  color: #172033;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.panel-header button {
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: #3155d8;
+
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 500;
+
+  cursor: pointer;
+}
+
+.panel-header button:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================
+   Placeholder
+========================= */
+
+.panel-placeholder {
+  min-height: 190px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  color: #a0a9b8;
+
+  font-size: 12px;
+
+  text-align: center;
+}
+
+
+/* =========================
+   Panel Layout
+========================= */
+
+.recent-incidents {
+  grid-column: span 1;
+}
+
+.system-health {
+  grid-column: span 1;
+}
+
+.affected-services {
+  grid-column: span 1;
+}
+
+.heatmap {
+  grid-column: span 1;
+}
+
+.dependency-graph {
+  grid-column: span 2;
+}
+
+
+/* =========================
+   Tablet
+========================= */
+
+@media (max-width: 1200px) {
+
+  .dashboard {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .affected-services {
+    grid-column: span 2;
+  }
+
+  .dependency-graph {
+    grid-column: span 2;
+  }
+}
+
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 900px) {
+
+  .dashboard {
+    margin-left: 0;
+
+    padding: 84px 16px 24px;
+
+    width: 100%;
+  }
+
+  .dashboard-header {
+    align-items: flex-start;
+
+    gap: 16px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 21px;
+  }
+
+  .dashboard-header p {
+    font-size: 12px;
+  }
+
+  .date-filter {
+    display: none;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+  }
+
+  .affected-services,
+  .dependency-graph {
+    grid-column: span 1;
+  }
+
+  .stat-card {
+    min-height: 125px;
+
+    padding: 15px;
+  }
+
+  .stat-value {
+    font-size: 22px;
+  }
+
+  .stat-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+
+/* =========================
+   Small Mobile
+========================= */
+
+@media (max-width: 500px) {
+
+  .dashboard {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    min-height: 110px;
+  }
+
+  .dashboard-header {
+    margin-bottom: 18px;
+  }
+
+  .panel-header {
+    padding: 0 14px;
+  }
+}

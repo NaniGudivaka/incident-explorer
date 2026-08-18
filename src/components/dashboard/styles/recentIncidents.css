@@ -1,0 +1,230 @@
+/* This part CSS refers to Recent Incidents part */
+
+
+/* This part CSS refers to Incident list */
+
+.recent-incidents-content {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* This part CSS refers to Individual Incident */
+
+.incident-item {
+  min-height: 64px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 10px 16px;
+
+  border-bottom: 1px solid #edf0f4;
+
+  box-sizing: border-box;
+
+  transition: background-color 0.2s ease;
+}
+
+.incident-item:last-child {
+  border-bottom: none;
+}
+
+.incident-item:hover {
+  background: #f8f9fc;
+}
+
+
+/* This part CSS refers to Incident Status Icon */
+
+.incident-status {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+}
+
+.incident-status.critical {
+  background: #ffe4e6;
+  color: #e5484d;
+}
+
+.incident-status.high {
+  background: #fff0d9;
+  color: #e59b19;
+}
+
+.incident-status.medium {
+  background: #fff6d9;
+  color: #c99200;
+}
+
+.incident-status.low {
+  background: #ddf6e9;
+  color: #229765;
+}
+
+
+/* This part CSS refers to Incident Information */
+
+.incident-info {
+  min-width: 0;
+
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.incident-title-row {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  min-width: 0;
+}
+
+.incident-id {
+  color: #526078;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  flex-shrink: 0;
+}
+
+.incident-title {
+  overflow: hidden;
+
+  color: #202c42;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.incident-service {
+  color: #8a95a7;
+
+  font-size: 10px;
+}
+
+
+/* This part CSS refers to Incident Time */
+
+.incident-time {
+  color: #8994a7;
+
+  font-size: 10px;
+
+  white-space: nowrap;
+}
+
+
+/* This part CSS refers to Incident Severity */
+
+.incident-severity {
+  min-width: 54px;
+
+  padding: 5px 8px;
+
+  border-radius: 5px;
+
+  font-size: 9px;
+  font-weight: 600;
+
+  text-align: center;
+
+  box-sizing: border-box;
+}
+
+.incident-severity.critical {
+  background: #ffe4e6;
+  color: #d9363e;
+}
+
+.incident-severity.high {
+  background: #fff0d9;
+  color: #c77b00;
+}
+
+.incident-severity.medium {
+  background: #fff6d9;
+  color: #a77a00;
+}
+
+.incident-severity.low {
+  background: #ddf6e9;
+  color: #218653;
+}
+
+
+/* This part CSS refers to Responsive Design */
+
+@media (max-width: 768px) {
+
+  .incident-item {
+    padding: 10px 12px;
+
+    gap: 9px;
+  }
+
+  .incident-title {
+    max-width: 180px;
+  }
+
+  .incident-time {
+    display: none;
+  }
+
+}
+
+@media (max-width: 500px) {
+
+  .incident-item {
+    min-height: 62px;
+  }
+
+  .incident-status {
+    width: 30px;
+    height: 30px;
+  }
+
+  .incident-title-row {
+    gap: 5px;
+  }
+
+  .incident-id {
+    font-size: 10px;
+  }
+
+  .incident-title {
+    font-size: 11px;
+  }
+
+  .incident-service {
+    font-size: 9px;
+  }
+
+  .incident-severity {
+    min-width: 48px;
+
+    padding: 4px 6px;
+
+    font-size: 8px;
+  }
+
+}
