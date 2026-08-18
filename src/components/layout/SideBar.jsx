@@ -104,7 +104,7 @@ function SideBar({ isOpen, onClose }) {
 
         <div className="user-info">
           <strong>Nani Gudivaka</strong>
-          <span>SRE Engineer</span>
+          <span>Full Stack Developer</span>
         </div>
 
         <span className="user-arrow">›</span>
