@@ -1,6 +1,4 @@
-/* =========================
-   Dashboard
-========================= */
+/* This part css refers to DASHBOARD */
 
 .dashboard {
   margin-left: 242px;
@@ -13,9 +11,7 @@
 }
 
 
-/* =========================
-   Dashboard Header
-========================= */
+/* This part css refers to DASHBOARD Header*/
 
 .dashboard-header {
   display: flex;
@@ -44,9 +40,7 @@
 }
 
 
-/* =========================
-   Date Filter
-========================= */
+/* This part css refers to date filter */
 
 .date-filter {
   height: 40px;
@@ -85,9 +79,7 @@
 }
 
 
-/* =========================
-   Statistics Grid
-========================= */
+/* This part css refers to statics good */
 
 .stats-grid {
   display: grid;
@@ -100,9 +92,7 @@
 }
 
 
-/* =========================
-   Stat Card
-========================= */
+/* This part css refers to stat card */
 
 .stat-card {
   position: relative;
@@ -153,9 +143,7 @@
 }
 
 
-/* =========================
-   Stat Change
-========================= */
+/* This part css refers to state change */
 
 .stat-change {
   display: flex;
@@ -193,9 +181,7 @@
 }
 
 
-/* =========================
-   Stat Icon
-========================= */
+/* This part css refers to state icon */
 
 .stat-icon {
   width: 46px;
@@ -231,9 +217,7 @@
 }
 
 
-/* =========================
-   Dashboard Grid
-========================= */
+/* This part css refers to DASHBOARD Grid*/
 
 .dashboard-grid {
   display: grid;
@@ -244,9 +228,7 @@
 }
 
 
-/* =========================
-   Panels
-========================= */
+/* This part css refers to Pannels */
 
 .dashboard-panel {
   min-height: 250px;
@@ -305,9 +287,7 @@
 }
 
 
-/* =========================
-   Placeholder
-========================= */
+/* This part css refers to Placehlder */
 
 .panel-placeholder {
   min-height: 190px;
@@ -325,10 +305,7 @@
   text-align: center;
 }
 
-
-/* =========================
-   Panel Layout
-========================= */
+/* This part css refers to panel layout */
 
 .recent-incidents {
   grid-column: span 1;
@@ -351,9 +328,7 @@
 }
 
 
-/* =========================
-   Tablet
-========================= */
+/* This part css refers to mobile responsive design */
 
 @media (max-width: 1200px) {
 
@@ -380,9 +355,7 @@
 }
 
 
-/* =========================
-   Mobile
-========================= */
+/* This part css refers to Responsive design */
 
 @media (max-width: 900px) {
 
@@ -446,9 +419,7 @@
 }
 
 
-/* =========================
-   Small Mobile
-========================= */
+/* This part css refers to Responsive design */
 
 @media (max-width: 500px) {
 
