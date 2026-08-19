@@ -11,6 +11,7 @@ import {
 
 import "./styles/dashboard.css";
 import RecentIncidents from "./RecentIncidents";
+import SystemHealth from "./SystemHealth";
 
 function Dashboard() {
   const stats = [
@@ -161,7 +162,7 @@ function Dashboard() {
           </div>
 
           <div className="panel-placeholder">
-            System health chart will come here...
+            <SystemHealth />
           </div>
         </div>
 

@@ -1,0 +1,210 @@
+/* This part CSS refers to System Health part */
+
+
+/* This part CSS refers to System Health Content */
+
+.system-health-content {
+  min-height: 190px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  gap: 20px;
+
+  padding: 20px 18px;
+
+  box-sizing: border-box;
+}
+
+
+/* This part CSS refers to Health Chart */
+
+.health-chart {
+  width: 135px;
+  height: 135px;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: conic-gradient(
+    #22a873 0% 64.6%,
+    #f4b740 64.6% 83.3%,
+    #ef5350 83.3% 93.7%,
+    #aab3c2 93.7% 100%
+  );
+
+  flex-shrink: 0;
+}
+
+
+/* This part CSS refers to Donut Chart Center */
+
+.health-chart::after {
+  content: "";
+
+  position: absolute;
+
+  width: 88px;
+  height: 88px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+}
+
+.health-chart-center {
+  position: relative;
+
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 3px;
+}
+
+.health-chart-center strong {
+  color: #172033;
+
+  font-size: 25px;
+  font-weight: 650;
+
+  line-height: 1;
+}
+
+.health-chart-center span {
+  color: #8994a7;
+
+  font-size: 10px;
+}
+
+
+/* This part CSS refers to Health Status List */
+
+.health-status-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+
+  min-width: 115px;
+}
+
+.health-status-item {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+}
+
+.health-status-icon {
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 6px;
+
+  flex-shrink: 0;
+}
+
+.health-status-icon.healthy {
+  background: #daf4e8;
+  color: #20a46f;
+}
+
+.health-status-icon.warning {
+  background: #fff0d7;
+  color: #e59b19;
+}
+
+.health-status-icon.critical {
+  background: #ffe0e2;
+  color: #e5484d;
+}
+
+.health-status-icon.unknown {
+  background: #edf0f4;
+  color: #7b8799;
+}
+
+
+/* This part CSS refers to Health Status Label */
+
+.health-status-label {
+  flex: 1;
+
+  color: #68758a;
+
+  font-size: 11px;
+}
+
+
+/* This part CSS refers to Health Status Value */
+
+.health-status-value {
+  color: #27344d;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+
+/* This part CSS refers to Responsive Design */
+
+@media (max-width: 1200px) {
+
+  .system-health-content {
+    justify-content: center;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+
+  .system-health-content {
+    padding: 18px 14px;
+
+    gap: 25px;
+  }
+
+  .health-chart {
+    width: 120px;
+    height: 120px;
+  }
+
+  .health-chart::after {
+    width: 78px;
+    height: 78px;
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .system-health-content {
+    flex-direction: column;
+
+    padding: 20px;
+  }
+
+  .health-status-list {
+    width: 100%;
+  }
+
+  .health-status-item {
+    width: 100%;
+  }
+
+}
