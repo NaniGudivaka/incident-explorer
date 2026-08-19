@@ -1,0 +1,480 @@
+/* This part CSS refers to Service Dependency Graph */
+
+
+/* This part CSS refers to Graph Content */
+
+.service-dependency-content {
+  width: 100%;
+  height: 100%;
+
+  padding: 18px;
+
+  box-sizing: border-box;
+}
+
+
+/* This part CSS refers to Dependency Graph */
+
+.dependency-graph {
+  position: relative;
+
+  width: 100%;
+  height: 290px;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+}
+
+
+/* This part CSS refers to Service Nodes */
+
+.service-node {
+  position: absolute;
+
+  min-width: 120px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 0 12px;
+
+  border: 1px solid;
+  border-radius: 24px;
+
+  background: #ffffff;
+
+  box-sizing: border-box;
+
+  z-index: 5;
+}
+
+
+/* This part CSS refers to Service Node Icon */
+
+.service-node-icon {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  flex-shrink: 0;
+}
+
+
+/* This part CSS refers to Service Node Text */
+
+.service-node-info {
+  white-space: nowrap;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+
+/* This part CSS refers to Healthy Services */
+
+.service-node.healthy {
+  border-color: #bdebd8;
+  color: #176b4b;
+}
+
+.service-node.healthy .service-node-icon {
+  background: #e2f7ed;
+  color: #20a874;
+}
+
+
+/* This part CSS refers to Warning Services */
+
+.service-node.warning {
+  border-color: #f5dba5;
+  color: #815d18;
+}
+
+.service-node.warning .service-node-icon {
+  background: #fff2d7;
+  color: #e6a11a;
+}
+
+
+/* This part CSS refers to Critical Services */
+
+.service-node.critical {
+  border-color: #f3c4c8;
+  color: #8f2630;
+}
+
+.service-node.critical .service-node-icon {
+  background: #ffe2e4;
+  color: #ef5350;
+}
+
+
+/* This part CSS refers to Node Positions */
+
+
+/* Web App */
+
+.service-node.web-app {
+  left: 2%;
+  top: 34%;
+}
+
+
+/* API Gateway */
+
+.service-node.api-gateway {
+  left: 2%;
+  top: 72%;
+}
+
+
+/* Payment Service */
+
+.service-node.payment {
+  left: 32%;
+  top: 48%;
+}
+
+
+/* Auth Service */
+
+.service-node.auth {
+  left: 58%;
+  top: 48%;
+}
+
+
+/* Notification Service */
+
+.service-node.notification {
+  left: 35%;
+  top: 5%;
+}
+
+
+/* Email Service */
+
+.service-node.email {
+  right: 2%;
+  top: 20%;
+}
+
+
+/* User Service */
+
+.service-node.user {
+  left: 34%;
+  bottom: 2%;
+}
+
+
+/* Cache Service */
+
+.service-node.cache {
+  left: 60%;
+  bottom: 2%;
+}
+
+
+/* Logging Service */
+
+.service-node.logging {
+  right: 2%;
+  top: 72%;
+}
+
+
+/* This part CSS refers to Graph Connections */
+
+.dependency-connections {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+
+/* This part CSS refers to Connection Lines */
+
+.dependency-line {
+  position: absolute;
+
+  height: 1px;
+
+  background: #aeb8c8;
+
+  transform-origin: left center;
+}
+
+
+/* This part CSS refers to Arrow */
+
+.dependency-arrow {
+  position: absolute;
+
+  right: -1px;
+  top: -3px;
+
+  width: 0;
+  height: 0;
+
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 6px solid #aeb8c8;
+}
+
+
+/* Web App → Payment */
+
+.line-0 {
+  width: 30%;
+  left: 15%;
+  top: 50%;
+
+  transform: rotate(8deg);
+}
+
+
+/* Web App → API Gateway */
+
+.line-1 {
+  width: 20%;
+  left: 13%;
+  top: 59%;
+
+  transform: rotate(30deg);
+}
+
+
+/* API Gateway → Payment */
+
+.line-2 {
+  width: 22%;
+  left: 14%;
+  top: 73%;
+
+  transform: rotate(-28deg);
+}
+
+
+/* Payment → Auth */
+
+.line-3 {
+  width: 18%;
+  left: 48%;
+  top: 53%;
+
+  transform: rotate(0deg);
+}
+
+
+/* Payment → User */
+
+.line-4 {
+  width: 14%;
+  left: 39%;
+  top: 62%;
+
+  transform: rotate(65deg);
+}
+
+
+/* Payment → Notification */
+
+.line-5 {
+  width: 16%;
+  left: 42%;
+  top: 43%;
+
+  transform: rotate(-65deg);
+}
+
+
+/* Auth → Email */
+
+.line-6 {
+  width: 18%;
+  left: 70%;
+  top: 45%;
+
+  transform: rotate(-35deg);
+}
+
+
+/* Auth → Logging */
+
+.line-7 {
+  width: 17%;
+  left: 71%;
+  top: 62%;
+
+  transform: rotate(30deg);
+}
+
+
+/* Auth → Cache */
+
+.line-8 {
+  width: 13%;
+  left: 66%;
+  top: 62%;
+
+  transform: rotate(65deg);
+}
+
+
+/* Notification → Payment */
+
+.line-9 {
+  width: 10%;
+  left: 43%;
+  top: 20%;
+
+  transform: rotate(75deg);
+}
+
+
+/* This part CSS refers to Responsive Design */
+
+@media (max-width: 1200px) {
+
+  .dependency-graph {
+    height: 270px;
+  }
+
+  .service-node {
+    min-width: 105px;
+    height: 44px;
+
+    padding: 0 9px;
+
+    gap: 7px;
+  }
+
+  .service-node-icon {
+    width: 27px;
+    height: 27px;
+  }
+
+  .service-node-info {
+    font-size: 10px;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+
+  .service-dependency-content {
+    padding: 12px;
+  }
+
+  .dependency-graph {
+    height: 420px;
+  }
+
+  .service-node {
+    min-width: 105px;
+    height: 42px;
+  }
+
+
+  /* Rearrange nodes for mobile */
+
+  .service-node.web-app {
+    left: 2%;
+    top: 5%;
+  }
+
+  .service-node.api-gateway {
+    left: 2%;
+    top: 28%;
+  }
+
+  .service-node.notification {
+    right: 2%;
+    left: auto;
+    top: 5%;
+  }
+
+  .service-node.payment {
+    left: 50%;
+    top: 28%;
+
+    transform: translateX(-50%);
+  }
+
+  .service-node.auth {
+    left: 50%;
+    top: 52%;
+
+    transform: translateX(-50%);
+  }
+
+  .service-node.email {
+    right: 2%;
+    top: 28%;
+  }
+
+  .service-node.user {
+    left: 2%;
+    bottom: 5%;
+  }
+
+  .service-node.cache {
+    left: 50%;
+    bottom: 5%;
+
+    transform: translateX(-50%);
+  }
+
+  .service-node.logging {
+    right: 2%;
+    top: 52%;
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .dependency-graph {
+    height: 390px;
+  }
+
+  .service-node {
+    min-width: 94px;
+    height: 38px;
+
+    padding: 0 7px;
+
+    gap: 5px;
+  }
+
+  .service-node-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .service-node-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .service-node-info {
+    font-size: 8px;
+  }
+
+}

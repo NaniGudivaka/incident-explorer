@@ -14,6 +14,7 @@ import RecentIncidents from "./RecentIncidents";
 import SystemHealth from "./SystemHealth";
 import TopAffectedServices from "./TopAffectedServices";
 import HeatMap from './HeatMap';
+import ServiceDependency from "./ServiceDependency";
 
 function Dashboard() {
   const stats = [
@@ -201,7 +202,9 @@ function Dashboard() {
           </div>
 
           <div className="panel-placeholder">
-            Neo4j dependency graph will come here...
+            {/* Neo4j dependency graph will come here... */}
+
+            <ServiceDependency />
           </div>
         </div>
 
