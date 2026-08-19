@@ -13,6 +13,7 @@ import "./styles/dashboard.css";
 import RecentIncidents from "./RecentIncidents";
 import SystemHealth from "./SystemHealth";
 import TopAffectedServices from "./TopAffectedServices";
+import HeatMap from './HeatMap';
 
 function Dashboard() {
   const stats = [
@@ -186,7 +187,9 @@ function Dashboard() {
           </div>
 
           <div className="panel-placeholder">
-            Incident heatmap will come here...
+            {/* Incident heatmap will come here... */}
+
+            <HeatMap />
           </div>
         </div>
 

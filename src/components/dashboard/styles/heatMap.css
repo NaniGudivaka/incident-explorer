@@ -1,0 +1,239 @@
+/* This part CSS refers to Incident Heatmap part */
+
+
+/* This part CSS refers to Heatmap Content */
+
+.incident-heatmap-content {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+
+  padding: 16px;
+
+  box-sizing: border-box;
+}
+
+
+/* This part CSS refers to Heatmap Wrapper */
+
+.heatmap-wrapper {
+  width: 100%;
+
+  overflow: hidden;
+}
+
+
+/* This part CSS refers to Time Labels */
+
+.heatmap-time-labels {
+  display: grid;
+
+  grid-template-columns: 32px repeat(12, minmax(0, 1fr));
+
+  gap: 3px;
+
+  margin-bottom: 5px;
+
+  color: #8a95a7;
+
+  font-size: 7px;
+
+  text-align: center;
+
+  white-space: nowrap;
+}
+
+
+/* This part CSS refers to Heatmap Rows */
+
+.heatmap-row {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: 32px minmax(0, 1fr);
+
+  gap: 3px;
+
+  margin-bottom: 4px;
+}
+
+
+/* This part CSS refers to Day Labels */
+
+.heatmap-day {
+  display: flex;
+  align-items: center;
+
+  color: #7d889a;
+
+  font-size: 9px;
+}
+
+
+/* This part CSS refers to Heatmap Cells */
+
+.heatmap-cells {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+
+  gap: 3px;
+}
+
+.heatmap-cell {
+  width: 100%;
+  height: 16px;
+
+  border-radius: 3px;
+
+  box-sizing: border-box;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.heatmap-cell:hover {
+  transform: scale(1.08);
+
+  opacity: 0.85;
+}
+
+
+/* This part CSS refers to Heatmap Intensity */
+
+.heatmap-cell.level-0,
+.legend-cell.level-0 {
+  background: #edf1f5;
+}
+
+.heatmap-cell.level-1,
+.legend-cell.level-1 {
+  background: #dce8f8;
+}
+
+.heatmap-cell.level-2,
+.legend-cell.level-2 {
+  background: #b8d0f2;
+}
+
+.heatmap-cell.level-3,
+.legend-cell.level-3 {
+  background: #789fe0;
+}
+
+.heatmap-cell.level-4,
+.legend-cell.level-4 {
+  background: #465fc2;
+}
+
+
+/* This part CSS refers to Heatmap Legend */
+
+.heatmap-legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 4px;
+
+  color: #8a95a7;
+
+  font-size: 9px;
+}
+
+.legend-cell {
+  width: 11px;
+  height: 11px;
+
+  border-radius: 2px;
+
+  flex-shrink: 0;
+}
+
+
+/* This part CSS refers to Responsive Design */
+
+@media (max-width: 768px) {
+
+  .incident-heatmap-content {
+    padding: 14px 12px;
+  }
+
+  .heatmap-time-labels {
+    grid-template-columns: 27px repeat(12, minmax(0, 1fr));
+
+    gap: 2px;
+
+    font-size: 6px;
+  }
+
+  .heatmap-row {
+    grid-template-columns: 27px minmax(0, 1fr);
+
+    gap: 2px;
+
+    margin-bottom: 3px;
+  }
+
+  .heatmap-cells {
+    gap: 2px;
+  }
+
+  .heatmap-cell {
+    height: 13px;
+  }
+
+  .heatmap-day {
+    font-size: 8px;
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .incident-heatmap-content {
+    padding: 12px 10px;
+  }
+
+  .heatmap-time-labels {
+    grid-template-columns: 24px repeat(12, minmax(0, 1fr));
+
+    font-size: 5px;
+  }
+
+  .heatmap-row {
+    grid-template-columns: 24px minmax(0, 1fr);
+  }
+
+  .heatmap-cell {
+    height: 11px;
+
+    border-radius: 2px;
+  }
+
+  .heatmap-day {
+    font-size: 7px;
+  }
+
+  .heatmap-legend {
+    justify-content: center;
+
+    font-size: 8px;
+  }
+
+  .legend-cell {
+    width: 9px;
+    height: 9px;
+  }
+
+}
