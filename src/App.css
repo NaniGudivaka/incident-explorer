@@ -28,3 +28,10 @@
     width: 100%;
   }
 } */
+
+/* For skelton loading */
+
+.test-skeleton {
+  width: 300px;
+  height: 20px;
+}

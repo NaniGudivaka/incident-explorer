@@ -1,10 +1,12 @@
 // This component refers to the Recent Incidents part
-
+import { useState, useEffect } from "react";
 import {
   AlertCircle,
   CircleAlert,
   CircleCheck,
 } from "lucide-react";
+
+import { getIncidents } from "../../services/api";
 
 import "./styles/recentIncidents.css";
 
@@ -13,48 +15,90 @@ function RecentIncidents() {
 
   // Incident data
 
-  const incidents = [
-    {
-      id: "INC-142",
-      title: "Database connection failure",
-      service: "Payment Service",
-      time: "10 min ago",
-      severity: "Critical",
-      icon: AlertCircle,
-    },
-    {
-      id: "INC-141",
-      title: "High latency in auth service",
-      service: "Auth Service",
-      time: "25 min ago",
-      severity: "High",
-      icon: CircleAlert,
-    },
-    {
-      id: "INC-140",
-      title: "Error rate spike in checkout",
-      service: "Checkout Service",
-      time: "1 hr ago",
-      severity: "High",
-      icon: CircleAlert,
-    },
-    {
-      id: "INC-139",
-      title: "Cache miss rate high",
-      service: "User Service",
-      time: "3 hr ago",
-      severity: "Medium",
-      icon: CircleAlert,
-    },
-    {
-      id: "INC-138",
-      title: "Email service slow",
-      service: "Notification Service",
-      time: "5 hr ago",
-      severity: "Low",
-      icon: CircleCheck,
-    },
-  ];
+  // const incidents = [
+  //   {
+  //     id: "INC-142",
+  //     title: "Database connection failure",
+  //     service: "Payment Service",
+  //     time: "10 min ago",
+  //     severity: "Critical",
+  //     icon: AlertCircle,
+  //   },
+  //   {
+  //     id: "INC-141",
+  //     title: "High latency in auth service",
+  //     service: "Auth Service",
+  //     time: "25 min ago",
+  //     severity: "High",
+  //     icon: CircleAlert,
+  //   },
+  //   {
+  //     id: "INC-140",
+  //     title: "Error rate spike in checkout",
+  //     service: "Checkout Service",
+  //     time: "1 hr ago",
+  //     severity: "High",
+  //     icon: CircleAlert,
+  //   },
+  //   {
+  //     id: "INC-139",
+  //     title: "Cache miss rate high",
+  //     service: "User Service",
+  //     time: "3 hr ago",
+  //     severity: "Medium",
+  //     icon: CircleAlert,
+  //   },
+  //   {
+  //     id: "INC-138",
+  //     title: "Email service slow",
+  //     service: "Notification Service",
+  //     time: "5 hr ago",
+  //     severity: "Low",
+  //     icon: CircleCheck,
+  //   },
+  // ];
+
+
+   const [incidents, setIncidents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+
+  useEffect(() => {
+
+    async function fetchIncidents() {
+
+      try {
+
+        const data = await getIncidents();
+
+        setIncidents(data.data.slice(0, 4));
+
+      } catch (error) {
+
+        console.error(error);
+        setError("Failed to load incidents");
+
+      } finally {
+
+        setLoading(false);
+
+      }
+    }
+
+    fetchIncidents();
+
+  }, []);
+
+
+  if (loading) {
+    return <div>Loading incidents...</div>;
+  }
+
+
+  if (error) {
+    return <div>{error}</div>;
+  }
 
 
   return (
@@ -62,7 +106,14 @@ function RecentIncidents() {
 
       {incidents.map((incident) => {
 
-        const Icon = incident.icon;
+        let Icon = CircleAlert;
+
+        if(incident.severity === 'Critical'){
+          Icon = AlertCircle;
+        }
+        if(incident.severity === 'Low'){
+          Icon = CircleCheck;
+        }
 
         return (
           <div

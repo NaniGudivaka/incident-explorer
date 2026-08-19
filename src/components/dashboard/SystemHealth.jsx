@@ -1,5 +1,7 @@
 // This component refers to the System Health part
 
+import { useState, useEffect } from "react";
+
 import {
   CheckCircle,
   AlertTriangle,
@@ -7,47 +9,86 @@ import {
   HelpCircle,
 } from "lucide-react";
 
+import { getSystemHealth } from "../../services/api";
+
 import "./styles/systemHealth.css";
 
 
 function SystemHealth() {
 
-  // System health data
+  const [healthStats, setHealthStats] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
 
-  //This was sample data, once i am done UI part i will create data with my own 
+  useEffect(() => {
+
+    async function fetchSystemHealth() {
+
+      try {
+
+        const response = await getSystemHealth();
+
+        console.log("SYSTEM HEALTH RESPONSE:", response);
+
+        setHealthStats(response.data);
+
+      } catch (err) {
+
+        console.error(err);
+        setError("Failed to load system health");
+
+      } finally {
+
+        setLoading(false);
+
+      }
+    }
+
+    fetchSystemHealth();
+
+  }, []);
+
+
+  if (loading) {
+    return <div>Loading system health...</div>;
+  }
+
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
 
   const healthData = [
     {
       label: "Healthy",
-      value: 62,
+      value: healthStats?.healthy ?? 0,
       icon: CheckCircle,
       type: "healthy",
     },
     {
       label: "Warning",
-      value: 18,
+      value: healthStats?.warning ?? 0,
       icon: AlertTriangle,
       type: "warning",
     },
     {
       label: "Critical",
-      value: 10,
+      value: healthStats?.critical ?? 0,
       icon: XCircle,
       type: "critical",
     },
     {
       label: "Unknown",
-      value: 6,
+      value: healthStats?.unknown ?? 0,
       icon: HelpCircle,
       type: "unknown",
     },
   ];
 
-  const totalServices = healthData.reduce(
-    (total, item) => total + item.value,
-    0
-  );
+
+  const totalServices = healthStats?.totalServices ?? 0;
 
 
   return (
@@ -93,6 +134,7 @@ function SystemHealth() {
 
             </div>
           );
+
         })}
 
       </div>
@@ -100,5 +142,6 @@ function SystemHealth() {
     </div>
   );
 }
+
 
 export default SystemHealth;

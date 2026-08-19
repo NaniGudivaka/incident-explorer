@@ -1,5 +1,7 @@
 
 
+import { useState, useEffect } from "react";
+
 import {
   AlertTriangle,
   ShieldAlert,
@@ -9,6 +11,8 @@ import {
   CalendarDays,
 } from "lucide-react";
 
+import { getDashboardStats } from "../../services/api";
+
 import "./styles/dashboard.css";
 import RecentIncidents from "./RecentIncidents";
 import SystemHealth from "./SystemHealth";
@@ -17,48 +21,71 @@ import HeatMap from './HeatMap';
 import ServiceDependency from "./ServiceDependency";
 
 function Dashboard() {
+
+
+  const [dashboardData, setDashboardData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [ error, setError] = useState(null);
+
+  useEffect(() => {
+    async function fetchDashboardStats(){
+      try{
+        const response = await getDashboardStats();
+
+        setDashboardData(response.data);
+      }catch(err){
+        console.log(err);
+        setError('Failed to load dashboard statistics');
+        console.log(loading, error)
+      } finally{
+        setLoading(false);
+      }
+    }
+    fetchDashboardStats();
+  }, []);
   const stats = [
     {
       title: "Open Incidents",
-      value: "12",
-      change: "2",
+      value: dashboardData?.openIncidents ?? "—",
+      change: "—",
       text: "from last 7 days",
       icon: AlertTriangle,
       type: "danger",
     },
     {
       title: "Critical Incidents",
-      value: "4",
-      change: "1",
+      value: dashboardData?.criticalIncidents ?? "—",
+      change: "—",
       text: "from last 7 days",
       icon: ShieldAlert,
       type: "danger",
     },
     {
       title: "Affected Services",
-      value: "28",
-      change: "5",
+      value: dashboardData?.affectedServices ?? "—",
+      change: "—",
       text: "from last 7 days",
       icon: Box,
       type: "warning",
     },
     {
       title: "Resolved Incidents",
-      value: "36",
-      change: "8",
+      value: dashboardData?.resolvedIncidents ?? "—",
+      change: "—",
       text: "from last 7 days",
       icon: CheckCircle,
       type: "success",
     },
     {
       title: "MTTR",
-      value: "2h 35m",
-      change: "15m",
+      value: dashboardData?.mttr ?? "—",
+      change: "—",
       text: "from last 7 days",
       icon: Clock,
       type: "info",
     },
   ];
+
 
   return (
     <main className="dashboard">
@@ -67,13 +94,13 @@ function Dashboard() {
 
       <div className="dashboard-header">
 
-        <div>
+        {/* <div>
           <h1>Dashboard</h1>
 
           <p>
             Overview of system health and recent activity
           </p>
-        </div>
+        </div> */}
 
         <button className="date-filter">
           <CalendarDays size={17} />
