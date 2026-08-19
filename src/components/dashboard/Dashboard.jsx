@@ -12,6 +12,7 @@ import {
 import "./styles/dashboard.css";
 import RecentIncidents from "./RecentIncidents";
 import SystemHealth from "./SystemHealth";
+import TopAffectedServices from "./TopAffectedServices";
 
 function Dashboard() {
   const stats = [
@@ -174,7 +175,7 @@ function Dashboard() {
           </div>
 
           <div className="panel-placeholder">
-            Affected services will come here...
+            <TopAffectedServices />
           </div>
         </div>
 
