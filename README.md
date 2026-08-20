@@ -1,16 +1,91 @@
-# React + Vite
+# Incident Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack incident monitoring and dependency exploration application built as part of the Wexa AI CognoDB assessment.
 
-Currently, two official plugins are available:
+Incident Explorer is designed to provide a centralized view of incidents, system health, affected services, and service dependencies. The application uses React for the frontend, Node.js/Express for the backend, and CognoDB as the graph database with the Neo4j JavaScript driver.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Modern applications consist of multiple interconnected services, databases, and dependencies. When an incident occurs, understanding the affected service and its surrounding dependencies can be difficult when the information is scattered across different systems.
 
-## Expanding the ESLint configuration
+Incident Explorer is designed to solve this problem by bringing incident information and service relationships into a single interface.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The application allows users to:
+
+- Monitor incidents
+- View incident severity and status
+- View recent incidents
+- Monitor overall system health
+- Identify affected services
+- Explore service dependencies
+- Navigate between different operational sections
+- Eventually trace relationships between incidents, services, dependencies, and databases using graph data
+
+---
+
+# Tech Stack
+
+## Frontend
+
+- React.js
+- JavaScript
+- Vite
+- React Router DOM
+- Lucide React
+- CSS
+
+## Backend
+
+- Node.js
+- Express.js
+- Neo4j JavaScript Driver
+- CognoDB
+- Cypher
+
+## Deployment
+
+- Frontend: Vercel
+- Backend: Render
+
+## Database
+
+- CognoDB
+- Neo4j JavaScript Driver
+- Cypher-compatible graph queries
+
+---
+
+# Application Architecture
+
+```text
+                    ┌─────────────────────┐
+                    │    React Frontend   │
+                    │                     │
+                    │  Dashboard          │
+                    │  Incidents          │
+                    │  System Health      │
+                    │  Other UI Sections  │
+                    └──────────┬──────────┘
+                               │
+                               │ REST API
+                               ▼
+                    ┌─────────────────────┐
+                    │   Node.js / Express │
+                    │                     │
+                    │ /api/dashboard      │
+                    │ /api/incidents      │
+                    │ /api/system-health │
+                    └──────────┬──────────┘
+                               │
+                               │ Neo4j Driver
+                               ▼
+                    ┌─────────────────────┐
+                    │      CognoDB        │
+                    │                     │
+                    │ Incidents           │
+                    │ Services            │
+                    │ Dependencies        │
+                    │ Databases           │
+                    └─────────────────────┘
