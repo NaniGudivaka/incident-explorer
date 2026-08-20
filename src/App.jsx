@@ -1,6 +1,6 @@
 //Skeleton loading will work if we render
 
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import "./App.css";
 
@@ -8,13 +8,15 @@ import Header from "./components/layout/Header";
 import SideBar from "./components/layout/SideBar";
 import Dashboard from "./components/dashboard/Dashboard";
 // import Skeleton from "./components/dashboard/common/Skeleton";
+import Incidents from "./pages/Incidents";
 
 function App() {
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <>
+    <BrowserRouter>
+    
 
       {/* <div
         style={{
@@ -38,11 +40,18 @@ function App() {
           onMenuClick={() => setSidebarOpen(true)}
         />
 
-        <Dashboard />
+        <Routes>
+
+        {/* <Dashboard /> */}
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/incidents" element={< Incidents />} />
+
+        </Routes>
 
       </div>
+      
 
-    </>
+    </BrowserRouter>
   );
 }
 

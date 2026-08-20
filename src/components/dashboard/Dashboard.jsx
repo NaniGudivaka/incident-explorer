@@ -19,6 +19,7 @@ import SystemHealth from "./SystemHealth";
 import TopAffectedServices from "./TopAffectedServices";
 import HeatMap from './HeatMap';
 import ServiceDependency from "./ServiceDependency";
+import { Link } from "react-router-dom";
 
 function Dashboard() {
 
@@ -175,8 +176,12 @@ function Dashboard() {
         <div className="dashboard-panel recent-incidents">
           <div className="panel-header">
             <h2>Recent Incidents</h2>
+
+            <Link to='/incidents' className="panel-link">
+            View all
+            </Link>
             
-            <button>View all</button>
+            {/* <button>View all</button> */}
           </div>
 
           <div className="panel-placeholder">

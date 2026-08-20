@@ -1,3 +1,6 @@
+
+import { NavLink } from "react-router-dom";
+
 import {
   LayoutDashboard,
   AlertTriangle,
@@ -82,16 +85,22 @@ function SideBar({ isOpen, onClose }) {
         {menuItems.map((item) => {
           const Icon = item.icon;
 
+          const path =
+            item.label === "Dashboard"
+              ? "/"
+              : `/${item.label.toLowerCase()}`;
+
           return (
-            <button
+            <NavLink
               key={item.label}
-              className={`sidebar-item ${
-                item.label === "Dashboard" ? "active" : ""
-              }`}
+              to={path}
+              className={({ isActive }) =>
+                `sidebar-item ${isActive ? "active" : ""}`
+              }
             >
               <Icon size={20} strokeWidth={1.8} />
               <span>{item.label}</span>
-            </button>
+            </NavLink>
           );
         })}
       </nav>

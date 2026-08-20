@@ -90,25 +90,24 @@
 
   display: flex;
   align-items: center;
-
   gap: 14px;
 
   padding: 0 14px;
+  box-sizing: border-box;
 
   border: none;
   border-radius: 9px;
 
   background: transparent;
-
   color: #d6dce6;
 
-  /* font-family: inherit; */
   font-size: 14px;
   font-weight: 500;
-
   text-align: left;
 
   cursor: pointer;
+
+  text-decoration: none;   /* ADD THIS */
 
   transition:
     background-color 0.2s ease,
@@ -121,7 +120,7 @@
 }
 
 .sidebar-item.active {
-  background: #4a55c7;
+  background: #4f5bd5;
   color: #ffffff;
 }
 
@@ -201,6 +200,25 @@
   line-height: 1;
 }
 
+/* .sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 12px 18px;
+
+  color: #ffffff;
+  background: transparent;
+
+  border-radius: 10px;
+  text-decoration: none;
+
+  cursor: pointer;
+} */
+
+.sidebar-item.active {
+  background: #4f5bd5;
+}
 
 /* Responsive Design  */
 @media (max-width: 900px) {
