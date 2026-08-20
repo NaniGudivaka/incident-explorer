@@ -10,6 +10,8 @@ import Dashboard from "./components/dashboard/Dashboard";
 // import Skeleton from "./components/dashboard/common/Skeleton";
 import Incidents from "./pages/Incidents";
 
+import ComingSoon from "./components/dashboard/common/ComingSoon";
+
 function App() {
 
 
@@ -59,6 +61,76 @@ function App() {
           {/* <Dashboard /> */}
           <Route path="/" element={<Dashboard />} />
           <Route path="/incidents" element={< Incidents />} />
+
+          <Route
+            path="/services"
+            element={
+              <ComingSoon
+                title="Services Explorer"
+                description="We're currently building the service monitoring and exploration experience. This section will provide service health, incident impact, and related dependency information."
+              />
+            }
+          />
+
+          <Route
+            path="/dependencies"
+            element={
+              <ComingSoon
+                title="Dependency Explorer"
+                description="This section will provide an interactive view of service dependencies and help trace how incidents can propagate across connected services."
+              />
+            }
+          />
+
+          <Route
+            path="/teams"
+            element={
+              <ComingSoon
+                title="Teams"
+                description="Team ownership and incident responsibility information will be available here."
+              />
+            }
+          />
+
+          <Route
+            path="/deployments"
+            element={
+              <ComingSoon
+                title="Deployments"
+                description="Deployment history and its relationship with incidents will be available here."
+              />
+            }
+          />
+
+          <Route
+            path="/databases"
+            element={
+              <ComingSoon
+                title="Databases"
+                description="Database health, usage, and service relationships will be explored here."
+              />
+            }
+          />
+
+          <Route
+            path="/environments"
+            element={
+              <ComingSoon
+                title="Environments"
+                description="Monitor incidents and services across development, staging, and production environments."
+              />
+            }
+          />
+
+          <Route
+            path="/reports"
+            element={
+              <ComingSoon
+                title="Reports"
+                description="Incident trends, service health metrics, and operational reports will be available here."
+              />
+            }
+          />
 
         </Routes>
 
